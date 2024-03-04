@@ -106,7 +106,6 @@ int checkall(char activeplayer, int posno) {
 	int rows = _checkrows(activeplayer, posno);
 	int cols = _checkcolumns(activeplayer, posno);
 	int diags = _checkdiagonals(activeplayer, posno);
-	printf("Rows, cols, diags: %d %d %d\n",rows,cols,diags);
 	if (rows == 1 || cols == 1 || diags == 1) return 1;
 	return 0;
 }
