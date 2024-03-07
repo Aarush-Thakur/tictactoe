@@ -27,7 +27,7 @@ int main() {
 	
 	if (exitcode != 0 && exitcode != -1) { fprintf(stderr, "\n\nAn error occurred somewhere. Exiting with exit code %d...", exitcode); return 1; }
 	
-	if (exitcode == -1) { printf("Draw. No one won!\n"); return 0; }
+	if (exitcode == -1) { printf("Draw. No one won!\n"); replayconfirm(); return 0;}
 	
 	switch (activeplayer) {
 		case 'X': printf("X won!\n"); break;
@@ -44,7 +44,7 @@ void replayconfirm() {
 	char repconf[8];
 	printf("Play again? (Yes/No): ");
 	fgets(repconf, 8, stdin);
-	if (strcmp(repconf,"Yes\n") == 0) {
+	if ( (strcmp(repconf,"Yes\n") == 0) || (strcmp(repconf,"yes\n") == 0) ) {
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 3; ++j) {
 				positions[i][j] = ' ';
@@ -53,6 +53,6 @@ void replayconfirm() {
 		activeplayer = 'X';
 		main();
 	}
-	else if (strcmp(repconf,"No\n") == 0) return;
+	else if ( (strcmp(repconf,"No\n") == 0) || (strcmp(repconf,"no\n") == 0) ) return;
 	else { printf("Enter Yes or No only.\n\n"); replayconfirm(); }
 }
