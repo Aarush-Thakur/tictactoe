@@ -53,6 +53,7 @@ void computerconfirm(char *compconfirm, uint8_t *isComp) {
 void enterpos() {
 	printf("\nEnter position number: ");
 	scanf("%d",&posno);
+	getchar();
 	if (posno < 1 || posno > 9) { printf("\nEnter a number from 1 to 9 and retry."); enterpos(); }
 	
 	if (positions[(posno-1)/3][(posno-1)%3] != ' ') { printf("\nThat position has already been occupied. Please enter a different location."); enterpos(); }
