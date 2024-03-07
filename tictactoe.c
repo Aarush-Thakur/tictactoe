@@ -45,8 +45,8 @@ void computerconfirm(char *compconfirm, uint8_t *isComp) {
 	printf("Play against computer? (Yes/No): ");
 	fgets(compconfirm, 8, stdin);
 	
-	if (strcmp(compconfirm, "Yes\n") == 0) *isComp = 1;
-	else if (strcmp(compconfirm, "No\n") == 0) *isComp = 0;
+	if ( (strcmp(compconfirm, "Yes\n") == 0) || (strcmp(compconfirm, "yes\n") == 0) ) *isComp = 1;
+	else if ( (strcmp(compconfirm, "No\n") == 0) || (strcmp(compconfirm, "no\n") == 0) ) *isComp = 0;
 	else { printf("Enter Yes or No only.\n\n"); computerconfirm(compconfirm, isComp); }
 }
 
